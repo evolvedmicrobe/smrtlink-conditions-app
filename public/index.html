@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Internal Dashboard</title>
+    <!-- Not present in the tutorial. Just for basic styling. -->
+    <link rel="stylesheet" href="css/base.css"/>
+    <!-- Everything should be loaded from webpack bundle.js -->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">SMRT Link Internal UI  0.3.0-alpha</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="http://smrtlink-internal:8081/status" target="_blank" >SL Internal Status</a></li>
+                <li><a href="http://smrtlink-internal:8080/#/analysis/jobs" target="_blank" >SL Internal Jobs</a></li>
+                <li><a href="http://smrtlink-beta:8080/#/analysis/jobs" target="_blank" >SL Beta Jobs</a></li>
+                <li><a href="http://smrtlink-alpha:8080/#/analysis/jobs" target="_blank" >SL Alpha Jobs</a></li>
+                <li><a href="http://web/~jfalkner/lims/" target="_blank" >LIMS</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- App content -->
+<div class="container" id="content"></div>
+<!-- End of App Content -->
+<!-- Everything should be loaded from webpack bundle.js -->
+<script src="js/bundle.js"></script>
+</body>
+</html>
