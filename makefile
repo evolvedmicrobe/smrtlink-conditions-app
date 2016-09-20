@@ -4,11 +4,12 @@ compile:
 watch:
 	webpack --progress --colors -w --profile
 
-mock-paws-services:
-	node --harmony mock-paws-services.js
+clean:
+	rm public/js/bundle.js*
 
-mock-transfer-services:
-	node --harmony mock-transfer-services.js
+build:
+	npm install
+	bower install
 
 static-server:
 	webpack-dev-server --hot --debug --content-base public/
