@@ -21,7 +21,7 @@ See `makefile` for more details.
 
 ## Todo
 
-- Add client side validation of CSV
+- Add client side validation of CSV contents
 - Add better error handling when pipelines are accessible
 - Add more informative message when POST fails
 - split out client calls into their own class
