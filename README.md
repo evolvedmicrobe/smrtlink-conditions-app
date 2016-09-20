@@ -1,15 +1,27 @@
 # ConditionJobApp
 
+Submit ReseqCondition jobs to SMRT Link Internal Analysis
 
-Build:
+## Build
 
-    npm install
-    bower install
-    make compile # builds bundle.js
+```
+npm install
+bower install
+make compile # builds bundle.js
+```
 
 
-Run:
+## Run
     
-    make static-server # static server for html/js/css 
+```
+make static-server # static server for html/js/css on localhost at 8080
+```
 
-    make mock-server # to start dev mock services for testing
+See `makefile` for more details.
+
+## Todo
+
+- Add client side validation of CSV
+- Add better error handling when pipelines are accessible
+- Add more informative message when POST fails
+- split out client calls into their own class

@@ -15,5 +15,3 @@ static-server:
 	webpack-dev-server --hot --debug --content-base public/
 
 
-py-static-server:
-	cd public && python -m SimpleHTTPServer 8080
