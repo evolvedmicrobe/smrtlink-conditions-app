@@ -13,8 +13,7 @@ const defaultValues = {
   csvContents: exampleCsvContents};
 
 
-// This is wrong
-const RESEQ_COND = "PacBio.FileTypes.COND_RESEQ";
+const FT_COND_RESEQ = "PacBio.FileTypes.COND_RESEQ";
 
 
 export class ConditionSubmitter extends React.Component {
@@ -37,7 +36,6 @@ export class ConditionSubmitter extends React.Component {
       errorMessage: null
     };
 
-    // bind form
     this.handleSubmission = this.handleSubmit.bind(this)
 
   }
@@ -91,8 +89,6 @@ export class ConditionSubmitter extends React.Component {
       createdAt: createdAt.toISOString()
     };
 
-    //this.onSubmit2(datum);
-
     console.log(`Condition Job Submitting ${this.postUrl} with payload ${createdAt.toISOString()}`);
 
     const payload = JSON.stringify(datum);
@@ -119,12 +115,11 @@ export class ConditionSubmitter extends React.Component {
         // FIXME the SL port is hardcoded
         let msg = <div>Successfully Created Job {jobId} in State {jobState} <a href={`${this.server}:8080/#/analysis/job/${jobId}`} target="_blank">Go To Job</a></div>;
 
-        // reset form values
+        // reset form values, but leave value of the current selected pipeline-id
         this.setState({
           successMessage: msg,
           name: defaultValues.description,
           description:defaultValues.description,
-          pipelineId: defaultValues.pipelineId,
           csvContents: defaultValues.csvContents,
           errorMessage: null});
       },
@@ -236,7 +231,7 @@ export class ConditionCsv extends React.Component {
 
   isConditionPipeline(p) {
     return(p.entryPoints
-        .map(function(x) {return(x.fileTypeId === RESEQ_COND)})
+        .map(function(x) {return(x.fileTypeId === FT_COND_RESEQ)})
         .reduce((prev, curr) => prev && curr))
   }
 
@@ -261,7 +256,7 @@ export class ConditionCsv extends React.Component {
         this.setState({pipelines: conditionPipelines})
       },
       error: (xhr, status, err) => {
-        // FIXME. Better error message from error
+        // FIXME. Better error message when the pipeline-templates service returns and Error
         var statusMsg = "Error connecting to " + this.statusUrl + " " + status + " " + err.toString();
         console.log(statusMsg);
         this.setState({errorMessage: statusMsg})
