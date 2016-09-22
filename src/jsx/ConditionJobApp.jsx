@@ -4,7 +4,7 @@ import jQuery from 'jquery';
 import { Button, ButtonInput, ButtonToolbar, Panel, Input, FormControls, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 
 
-const exampleCsvContents = "condId,host,jobId\ncond_a,smrtlink-beta,18973\ncond_b,smrtlink-beta,18690";
+const exampleCsvContents = "condId,host,jobId\nA7-Flea,smrtlink-beta,27976\nA7-SB,smrtlink-beta,27981";
 
 const defaultValues = {
   pipelineId: "pbpipelines_internal.pipelines.internal_cond_r_plots",
