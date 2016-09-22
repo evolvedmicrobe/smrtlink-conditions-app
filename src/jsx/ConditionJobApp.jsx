@@ -7,10 +7,11 @@ import { Button, ButtonInput, ButtonToolbar, Panel, Input, FormControls, FormGro
 const exampleCsvContents = "condId,host,jobId\ncond_a,smrtlink-beta,18973\ncond_b,smrtlink-beta,18690";
 
 const defaultValues = {
-  pipelineId: "pbsmrtpipe.pipelines.internal_cond_dev",
-  name: "Dev Test UI Job",
-  description: "Dev Condition job from CSV for UI testing",
+  pipelineId: "pbpipelines_internal.pipelines.internal_cond_r_plots",
+  name: "Plot R Resequencing Comparison Plots",
+  description: "Shows how to demo the program.",
   csvContents: exampleCsvContents};
+
 
 
 const FT_COND_RESEQ = "PacBio.FileTypes.COND_RESEQ";
