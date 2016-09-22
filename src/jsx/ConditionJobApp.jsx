@@ -231,9 +231,14 @@ export class ConditionCsv extends React.Component {
   }
 
   isConditionPipeline(p) {
-    return(p.entryPoints
+   var bad = ["Dev Reseq Cond Report",
+              "Dev Align Report",
+              "Dev R (hello world)",
+              "Dev R (hello+Report)",
+              "Train and Validate CCS Model"];              
+    return(bad.indexOf(p.name) == -1 && p.entryPoints
         .map(function(x) {return(x.fileTypeId === FT_COND_RESEQ)})
-        .reduce((prev, curr) => prev && curr))
+        .reduce((prev, curr) => prev && curr));
   }
 
   convertPipelines(allPipelines) {
