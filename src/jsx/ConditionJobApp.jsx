@@ -126,7 +126,7 @@ export class ConditionSubmitter extends React.Component {
       },
       error: (xhr, textStatus, err) => {
         // Propagate error to error div
-        this.setState({errorMessage: `Error submitting to ${this.postUrl} Message '${err.toString()}'`});
+        this.setState({errorMessage: `Error submitting to ${this.postUrl} Message '${err.toString()}' \nProblem is: '${xhr.responseJSON.message.toString()}'`});
         console.error(this.postUrl, textStatus, err.toString());
       },
       fail: (xhr, textStatus, err) => {
