@@ -46,8 +46,8 @@ export class ConditionSubmitter extends React.Component {
     console.log(JSON.stringify(nextProps));
     this.pipelines = nextProps.pipelines;
     // this should set pipelineId to first value
-    let p = nextProps.pipelines[0];
-    let sx = {pipelinesId: p.id,  name: p.name, descriptions: p.description};
+    let p = nextProps.pipelines[1];
+    let sx = {pipelineId: p.id,  name: p.name, description: p.description};
     console.log(`setting state to ${sx}`);
     this.setState(sx);
   }
@@ -57,6 +57,7 @@ export class ConditionSubmitter extends React.Component {
   }
 
   handleNameChange(e) {
+    console.log(`Setting name to ${e.target.value}`);
     this.setState({name: e.target.value});
   }
 
@@ -184,7 +185,7 @@ export class ConditionSubmitter extends React.Component {
 
             <div className="form-group">
               <label htmlFor="dsOrganism" className="control-label col-xs-2">Condition Pipeline ID</label>
-              <select class="selectpicker" onChange={this.handlePipelineIdChange.bind(this)}>
+              <select name="selPipeline" class="selectpicker" onChange={this.handlePipelineIdChange.bind(this)} value = {this.state.pipelineId}>
                 {this.pipelines.map((px, index) => <option key={index} value={px.id} > {px.name} </option>)}
               </select>
             </div>
