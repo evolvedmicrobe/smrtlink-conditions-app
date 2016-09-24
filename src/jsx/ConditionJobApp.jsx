@@ -120,18 +120,19 @@ export class ConditionSubmitter extends React.Component {
         // reset form values, but leave value of the current selected pipeline-id
         this.setState({
           successMessage: msg,
-          name: defaultValues.description,
-          description:defaultValues.description,
-          csvContents: defaultValues.csvContents,
           errorMessage: null});
       },
       error: (xhr, textStatus, err) => {
         // Propagate error to error div
-        this.setState({errorMessage: `Error submitting to ${this.postUrl} Message '${err.toString()}' \nProblem is: '${xhr.responseJSON.message.toString()}'`});
+        this.setState({
+          errorMessage: `Error submitting to ${this.postUrl} Message '${err.toString()}' \nProblem is: '${xhr.responseJSON.message.toString()}'`,
+          successMessage: null});
         console.error(this.postUrl, textStatus, err.toString());
       },
       fail: (xhr, textStatus, err) => {
-        this.setState({errorMessage: `Failed to submit to ${this.postUrl} ${err.toString()}`});
+        this.setState({
+          errorMessage: `Failed to submit to ${this.postUrl} ${err.toString()}`,
+          successMessage: null});
         console.error(this.postUrl, textStatus, err.toString());
       }
     });
